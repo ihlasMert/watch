@@ -1,24 +1,72 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="stopWatch" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L4Z-Hy-FMH">
+                                <rect key="frame" x="172" y="76" width="70.5" height="58.5"/>
+                                <color key="backgroundColor" systemColor="systemGreenColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="49"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KXQ-Mb-Toi">
+                                <rect key="frame" x="179.5" y="150.5" width="55" height="31"/>
+                                <color key="backgroundColor" red="0.36681007850000003" green="0.25372311069999998" blue="0.099861116949999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Stop"/>
+                                <connections>
+                                    <action selector="startStopDidTouch:" destination="BYZ-38-t0r" eventType="touchUpInside" id="TQf-DW-4zp"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vSx-ka-ypy">
+                                <rect key="frame" x="171.5" y="197.5" width="71" height="31"/>
+                                <color key="backgroundColor" red="0.89000000000000001" green="0.58437886959999996" blue="0.115327496" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Restart"/>
+                                <connections>
+                                    <action selector="resetDidTouch:" destination="BYZ-38-t0r" eventType="touchUpInside" id="1f2-7z-y7o"/>
+                                    <action selector="startStopDidTouch:" destination="BYZ-38-t0r" eventType="touchUpInside" id="nN5-dL-Dpw"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="KXQ-Mb-Toi" firstAttribute="top" secondItem="L4Z-Hy-FMH" secondAttribute="bottom" constant="16" id="Gk6-Jr-OPB"/>
+                            <constraint firstItem="KXQ-Mb-Toi" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="LC3-AU-bE6"/>
+                            <constraint firstItem="L4Z-Hy-FMH" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="32" id="Nfe-lt-nwM"/>
+                            <constraint firstItem="vSx-ka-ypy" firstAttribute="top" secondItem="KXQ-Mb-Toi" secondAttribute="bottom" constant="16" id="PRP-to-arU"/>
+                            <constraint firstItem="vSx-ka-ypy" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="eJh-TS-X53"/>
+                            <constraint firstItem="L4Z-Hy-FMH" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="pdy-Yq-VDH"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="startStopButton" destination="KXQ-Mb-Toi" id="3Dk-Sj-IaA"/>
+                        <outlet property="timerLabel" destination="L4Z-Hy-FMH" id="rbE-vw-51j"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="-113.04347826086958" y="-16.071428571428569"/>
         </scene>
     </scenes>
+    <resources>
+        <systemColor name="systemGreenColor">
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
 </document>
